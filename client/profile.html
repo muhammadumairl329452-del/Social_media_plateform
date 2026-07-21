@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile | Mini Social</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Modal-specific styles kept inline for simplicity */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 500; padding: 20px;
+  }
+  .modal-box {
+    background: #fff; border-radius: 12px; padding: 28px;
+    width: 100%; max-width: 420px; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 14px; right: 16px; background: none;
+    border: none; font-size: 1.3rem; color: #767688;
+  }
+  .avatar-edit-preview {
+    width: 90px; height: 90px; border-radius: 50%; object-fit: cover;
+    display: block; margin: 0 auto 14px; border: 2px solid #e5e6ec; background: #e5e6ec;
+  }
+</style>
+</head>
+<body>
+
+<!-- ---------- Navbar ---------- -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo">Mini Social</a>
+
+    <div class="nav-search-wrapper">
+      <input type="text" id="nav-search-input" placeholder="Search users...">
+      <div class="search-results" id="search-results"></div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Feed</a>
+      <a href="profile.html">
+        <img class="nav-avatar" id="nav-avatar" src="" alt="Me">
+      </a>
+      <button id="logout-btn">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- Profile header (populated by profile.js) -->
+  <div class="profile-header" id="profile-header">
+    <div class="loading">Loading profile...</div>
+  </div>
+
+  <!-- User's posts -->
+  <div id="profile-posts"></div>
+</div>
+
+<!-- ---------- Edit Profile Modal ---------- -->
+<div class="modal-overlay hidden" id="edit-profile-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="close-edit-modal">&times;</button>
+    <h2 style="margin-bottom:18px;">Edit Profile</h2>
+
+    <form id="edit-profile-form">
+      <img class="avatar-edit-preview" id="edit-avatar-preview" src="" alt="Avatar preview">
+
+      <div class="form-group">
+        <label class="file-label" style="justify-content:center; margin-bottom:14px;">
+          📷 Change Profile Picture
+          <input type="file" id="edit-profile-picture" accept="image/*">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-name">Name</label>
+        <input type="text" id="edit-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-bio">Bio</label>
+        <textarea id="edit-bio" maxlength="500" placeholder="Tell us about yourself..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feed | Mini Social</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ---------- Navbar ---------- -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo">Mini Social</a>
+
+    <div class="nav-search-wrapper">
+      <input type="text" id="nav-search-input" placeholder="Search users...">
+      <div class="search-results" id="search-results"></div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Feed</a>
+      <a href="profile.html">
+        <img class="nav-avatar" id="nav-avatar" src="" alt="Me">
+      </a>
+      <button id="logout-btn">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ---------- Feed ---------- -->
+<div class="container feed-wrapper">
+
+  <!-- Create Post -->
+  <div class="create-post-card">
+    <form id="create-post-form">
+      <textarea id="post-content-input" placeholder="What's on your mind?" maxlength="2000" required></textarea>
+      <div class="image-preview" id="post-image-preview"></div>
+      <div class="create-post-actions">
+        <label class="file-label">
+          📷 Add Photo
+          <input type="file" id="post-image-input" accept="image/*">
+        </label>
+        <button type="submit" class="btn btn-primary btn-sm">Post</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Feed of posts -->
+  <div id="feed"></div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
